@@ -32,7 +32,17 @@
         if (!window["WebSocket"]) {
           alert("error: cannot use websoket on this browser")
         } else {
-          socket = new WebSocket("wss://localhost:8080/room")
+          let loc = window.location;
+          let uri = 'ws:';
+          if (loc.protocol === 'https:') {
+              uri = 'wss:';
+          }
+          uri += '//' + loc.host;
+          uri += loc.pathname + 'room';
+          socket = new WebSocket(uri)
+          socket.onopen = function () {
+            console.log("start connection")
+          }
           socket.onclose = function () {
             alert("close connection")
           }
