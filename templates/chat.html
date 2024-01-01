@@ -1,8 +1,46 @@
 <html>
   <head>
     <title>chat</title>
+    <style>
+      input { display: block; }
+      ul { list-style: none; }
+    </style>
   </head>
   <body>
-    hello world
+    <ul id="messages"></ul>
+    <h1>chat app</h1>
+    <form id="chatbox">
+      <textarea cols="30" rows="10"></textarea>
+      <input type="submit" value="send" />
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        var socket = null
+        var msgBox = $("#chatbox textarea")
+        var messages = $("#messages")
+        $("#chatbox").submit(function () {
+          if (!msgBox.val()) return false
+          if (!socket) {
+            alert("error: no websocket connection")
+            return false
+          }
+          socket.send(msgBox.val())
+          msgBox.val("")
+          return false
+        })
+        if (!window["WebSocket"]) {
+          alert("error: cannot use websoket on this browser")
+        } else {
+          socket = new WebSocket("wss://localhost:8080/room")
+          socket.onclose = function () {
+            alert("close connection")
+          }
+          socket.onmessage = function (e) {
+            messages.append($("<li>").text(e.data))
+          }
+        }
+      })
+    </script>
   </body>
 </html>
