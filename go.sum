@@ -1,5 +1,7 @@
 github.com/JunichiroKohari/go_trace v0.0.0-20240103032908-5e1541a9a5c1 h1:beWQMeR027vV5WtEBlfU1EQAj5IOBZixkzHW/QUnLOk=
 github.com/JunichiroKohari/go_trace v0.0.0-20240103032908-5e1541a9a5c1/go.mod h1:lT6bymkgVVZukZdVgT0WcaufTejEJQxp5aGiiyd5xoc=
+github.com/JunichiroKohari/go_trace v0.0.0-20240103122857-802b54bd18e9 h1:xzyD8g52FzBVS/jwiJZlq8tjzL5nFxLcXt6D5bM4QNk=
+github.com/JunichiroKohari/go_trace v0.0.0-20240103122857-802b54bd18e9/go.mod h1:lT6bymkgVVZukZdVgT0WcaufTejEJQxp5aGiiyd5xoc=
 github.com/gorilla/websocket v1.5.1 h1:gmztn0JnHVt9JZquRuzLw3g4wouNVzKL15iLr/zn/QY=
 github.com/gorilla/websocket v1.5.1/go.mod h1:x3kM2JMyaluk02fnUJpQuwD2dCS5NDG2ZHL0uE0tcaY=
 golang.org/x/net v0.17.0 h1:pVaXccu2ozPjCXewfr1S7xza/zcXTity9cCdXQYSjIM=
