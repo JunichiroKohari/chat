@@ -27,7 +27,7 @@ func main() {
 	flag.Parse()
 	r := newRoom()
 	// r.tracer = go_trace.New(os.Stdout)
-	http.Handle("/", &template1Handler{filename: "chat.html"})
+	http.Handle("/chat", MustAuth(&template1Handler{filename: "chat.html"}))
 	http.Handle("/room", r)
 	go r.run()
 	log.Println("Start Web Server. Port: ", *addr)
