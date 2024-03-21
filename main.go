@@ -29,6 +29,7 @@ func main() {
 	// r.tracer = go_trace.New(os.Stdout)
 	http.Handle("/chat", MustAuth(&templateHandler{filename: "chat.html"}))
 	http.Handle("/login", &templateHandler{filename: "login.html"})
+	http.HandleFunc("/auth/", loginHandler)
 	http.Handle("/room", r)
 	go r.run()
 	log.Println("Start Web Server. Port: ", *addr)
